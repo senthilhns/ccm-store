@@ -1,0 +1,35 @@
+---
+# Deploys an nginx web server pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-test
+  template:
+    metadata:
+      labels:
+        app: http-test
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+---
+# Exposes the nginx pod via an external LoadBalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: http-test-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: http-test
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

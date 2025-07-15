@@ -1,0 +1,5 @@
+
+name_prefix = "Jul08Eks" # delegate name will be derived from this
+account_id = "xxxxxxxxx"
+delegate_token = "xxxxxxxxx"
+is_add_k8s_cluster_connector = true

@@ -1,0 +1,18 @@
+# stack/deployment name
+
+deployment_name     = "hns-2025-jun-25"
+resource_group_name = "hns-2025-jun-25-rg"
+location            = "centralindia"
+
+# VM
+vm_size        = "Standard_B1ms"
+admin_username = "azureuser"
+os_disk_size_gb = 30
+
+disk_type = "Standard_LRS"
+public_ip = true
+
+# Tags (optional)
+tags = {
+  environment = "dev"
+}

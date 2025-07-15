@@ -1,0 +1,1 @@
+This repo contains Harness CCM terraform scripts for the video demos of Auto Stopping and Cost Monitoring

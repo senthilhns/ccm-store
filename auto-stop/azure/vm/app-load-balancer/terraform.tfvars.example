@@ -1,0 +1,26 @@
+# stack/deployment name
+location = "centralindia"
+harness_cloud_connector_id = "azconn02"
+public_ip = true
+
+deployment_name     = "hns-2025-jun-25"
+resource_group_name = "hns-2025-jun-25-rg"
+
+target_vm_public_ip = ""
+target_vm_id = "/subscriptions/<az_subscription_id>/resourceGroups/hns-2025-jun-25-rg/providers/Microsoft.Compute/virtualMachines/hns-2025-jun-25-vm"
+
+alb_cert_password = "abc123"
+
+# Tags (optional)
+tags = {
+  environment = "dev"
+}
+
+#
+#
+#
+
+is_create_auto_stop_rule = true
+app_gateway_id = "/subscriptions/<az_subscription_id>/resourceGroups/hns-2025-jun-25-rg/providers/Microsoft.Network/applicationGateways/hns-2025-jun-25-gw"
+alb_certificate_id = "/subscriptions/<az_subscription_id>/resourceGroups/hns-2025-jun-25-rg/providers/Microsoft.Network/applicationGateways/hns-2025-jun-25-gw/sslCertificates/appgw-cert"
+
