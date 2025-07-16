@@ -1,0 +1,12 @@
+
+# Specify RDS instance creation params here
+
+region = "ap-south-1"                   # Your desired AWS region
+db_name     = "July15Rds"               # Your desired DB name
+vpc_id      = "vpc-0f317b7668ecdb24eb"   # Your VPC ID
+subnet_ids  = ["subnet-0c30b316cc0e744c9", "subnet-0ba8751a841ad9ee7"] # Your subnet IDs (must be in the same VPC)
+
+db_username = "admin"       # Your desired DB username
+db_password = ""    # Your desired DB password
+
+schedule_name = "July15RdsSchedule"
