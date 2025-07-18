@@ -11,8 +11,8 @@ allocate_static_ip   = true
 use_tcp_proxy = false
 use_https_proxy = true
 
-this_tf_principal_id = ""
-harness_principal_id = ""
+this_tf_principal_id = "b1234567-89ab-4cde-f012-3456789abcde"
+harness_principal_id = "d9876543-21fe-4abc-8765-4321fedcba98"
 
 resource_group_name = "jun30pxy1rg"
 

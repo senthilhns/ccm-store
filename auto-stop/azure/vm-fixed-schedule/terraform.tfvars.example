@@ -1,0 +1,19 @@
+
+# Specify Azure VM fixed schedule Auto Stop rule creation params here
+location = "centralindia"
+
+# auto schedule VM tag to use
+# VMs should have the tag key Schedule matching the below value
+# search and find VMs with this tag
+schedule_name_tag = "jul18schedule01"
+
+# name to set for the schedule indicating the schedule type
+schedule_name = "PeakHoursUptimeSchedule01"
+# in what time zone the schedule should be defined for start and end times
+time_zone = "EST"
+
+# set to true for Azure VMs schedule addition
+add_az_vm_schedule_rules = true
+
+#harness
+harness_cloud_connector_id = "azconn02"

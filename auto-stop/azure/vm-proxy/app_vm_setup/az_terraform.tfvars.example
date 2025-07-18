@@ -1,0 +1,22 @@
+# stack/deployment name
+resource_group_name = "hns-autostop-azure-001"
+deployment_name     = "hns-1035"
+location            = "Central India"
+
+# VM
+vm_name        = "${deployment_name}-vm"
+admin_username = "azureuser"
+admin_password = "your-password-here"
+vm_size        = "Standard_B1ls"
+os_disk_size_gb = 30
+
+disk_type = "Standard_LRS"
+public_ip = true
+
+# Tags (optional)
+tags = {
+  environment = "dev"
+}
+
+# Custom data (cloud-init)
+# custom_data = "<base64-encoded-vm-init-script>"
