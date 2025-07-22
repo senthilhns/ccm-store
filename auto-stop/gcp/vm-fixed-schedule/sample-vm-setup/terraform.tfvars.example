@@ -1,0 +1,11 @@
+
+# Create a sample gcp VM for testing
+
+project          = "hns-sbox"              # gcp project name
+zone             = "asia-south1-a"         # your preferred GCP zone
+
+stack_prefix     = "jul22a"                 # your desired prefix for resource names
+machine_type     = "e2-micro"              # GCP VM type
+
+schedule_tag_key = "schedule"              # your desired value for the schedule label's key
+schedule_tag_name = "jul22asched" # your desired value for the Schedule label

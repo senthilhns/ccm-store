@@ -1,0 +1,23 @@
+
+# Specify GCP project where VMs are located
+project_id = "hns-sbox"
+# Specify the GCP zone containing the target VMs
+zone = "asia-south1-a"
+
+
+# Set to true to enable fixed schedule auto stop/start rules for GCP VMs
+add_vm_schedule_rules = true
+
+
+# Tag key to identify VMs for scheduling (VMs should have this tag key, e.g., 'schedule')
+schedule_tag_key = "schedule"
+# Tag value to match for selecting VMs to schedule (VMs with this tag value will be included)
+schedule_name_tag = "jul22asched"
+# Name to set for the schedule, indicating the type of schedule
+schedule_name = "peakuptimeschedule02"
+# Time zone for schedule start and end times (e.g., 'EST')
+time_zone = "EST"
+
+
+# Harness cloud connector ID for GCP integration
+harness_cloud_connector_id = "myconn02"
