@@ -1,8 +1,15 @@
 
+delegate setup with Helm
+Following can be obtained from Harness UI
+    Account Settings ->
+        Connectors ->
+            Kubernetes Cluster (Cloud Provider) ->
+                Step (3) Delegate setup ->
+                    Install new Delegate ->
+                        Helm Chart -> copy paste the commands and execute like below
+
 ### Setup Harness Delegate
 ```bash
-helm repo add harness-delegate https://app.harness.io/storage/harness-download/delegate-helm-chart/
-helm repo update harness-delegate
 helm repo add harness-delegate https://app.harness.io/storage/harness-download/delegate-helm-chart/
 helm repo update harness-delegate
 helm upgrade -i helm-delegate --namespace harness-delegate-ng --create-namespace \

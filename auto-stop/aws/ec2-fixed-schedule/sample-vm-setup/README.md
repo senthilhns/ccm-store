@@ -37,6 +37,24 @@ This module provisions an AWS EC2 instance (t3.nano, Ubuntu 22.04) with an SSH k
     --region <your-region> \
     --output text | sort -k2 -r | head -n1
   ```
+### Verify the VM and its schedule tag value set
+Get the VM instance ID
+```bash
+ aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId" --output table
+```
+Get the VM tag values
+```bash
+aws ec2 describe-tags \
+  --filters "Name=resource-id,Values=<instance id>" \
+  --output table
+```
+
+example command
+```bash
+aws ec2 describe-tags \
+  --filters "Name=resource-id,Values=i-0d4e8d3b96aab860a" \
+  --output table
+```
 
 ## Security Notes
 - The SSH private key (`ec2-key.pem`) is git-ignored by default for safety.

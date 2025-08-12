@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ccm-kubernetes-config
+  namespace: harness-delegate-ng
+data:
+  ENABLE_AUTOSTOP: "true"

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: harness-ccm
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-ccm
+  namespace: harness-ccm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: harness-ccm
+  template:
+    metadata:
+      labels:
+        app: harness-ccm
+    spec:
+      containers:
+      - name: harness-ccm
+        image: harness/ccm:latest
+        ports:
+        - containerPort: 80

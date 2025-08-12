@@ -1,0 +1,13 @@
+apiVersion: ccm.harness.io/v1
+kind: AutoStoppingRule
+metadata:
+  name: k8s-0065-rule
+  namespace: default
+  annotations:
+    harness.io/cloud-connector-id: aws5080conn005
+spec:
+  idleTimeMins: 15
+  workloadName: nginx-deployment
+  workloadType: Deployment
+  hideProgressPage: false
+  dependencies: []

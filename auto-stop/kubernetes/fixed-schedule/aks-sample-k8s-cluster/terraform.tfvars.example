@@ -1,0 +1,6 @@
+resource_group_name = "akstest5aug"
+location = "Central India"
+cluster_name = "k8s005cluster"
+dns_prefix = "k8s005"
+node_count = 1
+vm_size = "Standard_D2s_v3"

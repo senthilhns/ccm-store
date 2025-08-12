@@ -12,8 +12,32 @@ export HARNESS_ACCOUNT_ID="xxxxxxxxxxxxxxxxxxxx"
 export HARNESS_PLATFORM_API_KEY="xxxxxxxxxxxxxxxxxxxx"
 ```
 
+* Verify VM details
+### Verify the VM and its schedule tag value set
+Get the VM instance ID
+```bash
+ aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId" --output table
+```
+Get the VM tag values
+```bash
+aws ec2 describe-tags \
+  --filters "Name=resource-id,Values=<instance id>" \
+  --output table
+```
+
+example command
+```bash
+aws ec2 describe-tags \
+  --filters "Name=resource-id,Values=i-0d4e8d3b96aab860a" \
+  --output table
+```
+
+---
+
 ### Step 2
 copy terraform.tfvars.example as terraform.tfvars and fill in the values
+
+---
 
 ### step 3
 Use terraform or open terraform (tofu) for this step
@@ -24,6 +48,8 @@ terraform validate
 terraform plan
 terraform apply -auto-approve
 ```
+
+---
 
 ### Step 4
 Goto your Harness account console in web browser and in auto stopping rules check all rules are created correctly
