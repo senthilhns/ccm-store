@@ -1,0 +1,19 @@
+
+
+cluster_name               = "k8scluster0074sep12-eks"
+cluster_endpoint           = "https://xxxxxxxxxxxxxxxxxxxx.gr7.ap-south-1.eks.amazonaws.com"
+cluster_oidc_arn = "arn:aws:iam::xxxxxx:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/xxxxxx"
+
+
+cluster_subnet_ids         = [
+  "subnet-0180ed25f46efaa8a",
+  "subnet-06dcd2abbfc934eaf"
+]
+
+cluster_security_group_ids = [
+  "sg-02552a6f01949d0e2"
+]
+
+cluster_amis               = ["ami-00a741dfb9fb3123c"]
+
+ccm_k8s_connector_id       = "k8scluster0074sep12eksconnCostaccess"
