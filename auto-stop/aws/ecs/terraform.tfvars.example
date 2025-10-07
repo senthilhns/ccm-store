@@ -1,0 +1,16 @@
+
+# AWS region where the ECS cluster and service exist
+region = "ap-south-1"
+
+# Harness CCM cloud connector ID
+harness_cloud_connector_id = "myconnector"
+
+# ECS identifiers by name (not ARNs)
+ecs_cluster_name = "Oct03Ecs08Cluster"
+ecs_service_name = "nginx-ec2-svc"
+
+# Name for the uptime schedule attached to the ECS rule
+schedule_name = "Oct03Ecs08ClusterSchedule"
+
+# Time zone for the schedule window (e.g., Asia/Kolkata, UTC, EST)
+time_zone = "Asia/Kolkata"

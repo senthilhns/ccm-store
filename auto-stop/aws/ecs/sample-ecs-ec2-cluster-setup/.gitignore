@@ -1,0 +1,2 @@
+# Ignore generated ECS private key files
+*.pem

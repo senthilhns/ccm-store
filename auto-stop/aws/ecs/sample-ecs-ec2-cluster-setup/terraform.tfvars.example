@@ -1,0 +1,19 @@
+region = "ap-south-1" # Replace with your desired region
+
+vpc_id     = "vpc-0f123a456ecfb84eb" # Replace with your VPC ID
+subnet_ids = ["subnet-1234567890abcdef0", "subnet-abcdef01234567890"] # Replace with your subnet IDs
+
+cluster_name          = "Jul09EcsCluster" # Replace with your ECS cluster name
+asg_name              = "Jul09EcsAsg"     # Replace with your Auto Scaling Group name
+launch_template_name  = "Jul09EcsLt"      # Replace with your Launch Template name
+
+instance_type   = "t3.small"
+desired_capacity = 1
+min_size         = 1
+max_size         = 1
+
+key_name     = "Jul09EcsKey"            # Replace with your SSH key name
+schedule_tag = "Jul09AutoStopSchedule"  # Replace with your desired schedule tag
+
+# Optional: override AMI ID (otherwise the latest ECS-optimized AL2 AMI is used)
+# ami_id = "ami-xxxxxxxxxxxxxxxxx"
