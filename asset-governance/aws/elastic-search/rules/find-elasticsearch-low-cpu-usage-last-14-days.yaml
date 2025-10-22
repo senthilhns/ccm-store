@@ -1,0 +1,12 @@
+policies:
+  - name: find-elasticsearch-low-cpu-usage-last-14-days
+    resource: elasticsearch
+    description: |
+      Flag domains with sustained low CPU using 14-day daily data
+    filters:
+      - type: metrics
+        name: CPUUtilization
+        days: 14
+        period: 86400
+        value: 5
+        op: less-than

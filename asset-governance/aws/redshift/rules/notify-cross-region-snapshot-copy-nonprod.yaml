@@ -1,0 +1,17 @@
+policies:
+  - name: notify-cross-region-snapshot-copy-nonprod
+    resource: redshift
+    description: |
+      Alert when Redshift clusters in non-production have cross-Region snapshot copy enabled.
+    filters:
+      # Check if cross-Region copy is enabled (DestinationRegion exists and is not null)
+      - type: value
+        key: ClusterSnapshotCopyStatus.DestinationRegion
+        op: ne
+        value: null
+
+      # (optional) only alert if retention is > 0 (i.e., actually retaining copies)
+      - type: value
+        key: ClusterSnapshotCopyStatus.RetentionPeriod
+        op: gt
+        value: 0

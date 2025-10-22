@@ -1,0 +1,23 @@
+
+stack_prefix_id = "oct-21-016"
+
+aws_region           = "ap-south-1"
+vpc_id               = "vpc-0fxxxxxxxxxxxxxx"
+subnet_ids           = ["subnet-02xxxxxxxxxxx", "subnet-0bxxxxxxxxxxxxxxx"]
+
+cluster_identifier               = "redshift-cluster-for-testing"
+node_type                        = "ra3.xlplus"
+master_username                  = "awsuser"
+database_name                    = "dev"
+
+snapshot_retention_period        = 15
+snapshot_copy_destination_region = "us-west-2"
+snapshot_copy_retention_period   = 7
+
+publicly_accessible              = true
+security_group_name              = "redshift-public-sg-for-testing"
+subnet_group_name                = "redshift-subnet-group-for-testing"
+
+tags = {
+  Name = "redshift-cluster-for-testing"
+}

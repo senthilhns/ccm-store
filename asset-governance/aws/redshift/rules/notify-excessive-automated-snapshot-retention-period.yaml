@@ -1,0 +1,28 @@
+#  AWS gives free backup storage equal to the size of active cluster and not unlimited snapshots or 35 days for free if the total snapshot size is lesser than the cluster size
+#
+#    Choose 7 or 14 days for this, correct business case policy is required for this
+#
+#    Consider example below
+#
+#    Cluster = 2 TB
+#    Snapshot A = 1.5 TB (baseline)
+#    Snapshot B = 0.6 TB changed blocks
+#    Snapshot C = 0.8 TB changed blocks
+#
+#    Then total snapshot data = 1.5 + 0.6 + 0.8 = 2.9 TB,
+#    this is 0.9 TB beyond cluster size billed snapshot storage.
+#
+#    https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+
+policies:
+  - name: notify-excessive-automated-snapshot-retention-period
+    resource: redshift
+    description: |
+      Notify when Redshift clusters retain automated snapshots for more than 14 days.
+      Longer retention increases storage costs beyond the free limit (free backup storage is only up to total cluster size).
+    filters:
+      # flag clusters with automated retention > 14 days
+      - type: value
+        key: AutomatedSnapshotRetentionPeriod
+        op: gt
+        value: 14

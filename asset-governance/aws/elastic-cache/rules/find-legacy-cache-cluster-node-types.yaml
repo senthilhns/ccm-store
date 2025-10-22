@@ -1,0 +1,14 @@
+policies:
+  - name: find-legacy-cache-cluster-node-types
+    resource: cache-cluster
+    description: |
+      Identify dev ElastiCache clusters using older, typically less cost-efficient node families
+      (m1/m2/m3/m4, r3/r4, t1/t2). Tag and notify owners/FinOps.
+
+    filters:
+
+      # Legacy/previous-gen node families to flag
+      - type: value
+        key: CacheNodeType
+        op: regex
+        value: '^(cache\.(m1|m2|m3|m4|r3|r4|t1|t2)\..+)$'

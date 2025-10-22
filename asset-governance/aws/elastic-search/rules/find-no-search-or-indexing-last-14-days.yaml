@@ -1,0 +1,17 @@
+policies:
+  - name: find-no-search-or-indexing-last-14-days
+    resource: elasticsearch
+    description: Find domains with near-zero search and indexing activity for 14 days
+    filters:
+      - type: metrics
+        name: SearchRate
+        days: 14
+        period: 86400
+        op: less-than
+        value: 1
+      - type: metrics
+        name: IndexingRate
+        days: 14
+        period: 86400
+        op: less-than
+        value: 1

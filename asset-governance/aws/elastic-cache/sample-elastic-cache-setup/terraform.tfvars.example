@@ -1,0 +1,20 @@
+
+# set your values here
+
+aws_region           = "ap-south-1"
+vpc_id               = "vpc-0f4xxxxxxxx"
+subnet_ids           = ["subnet-02xxxxxxxxx", "subnet-0b2xxxxxxxxx"]
+
+stack_prefix_id = "oct-21-003"
+
+cluster_id           = "oct-21-001-redis-cluster"
+engine               = "redis"
+node_type            = "cache.t2.micro"
+num_cache_nodes      = 1
+parameter_group_name = "default.redis6.2"
+port                 = 6379
+tags = {
+  Name        = "sample-redis-cluster"
+  Environment = "test"
+  Purpose     = "policy-test"
+}

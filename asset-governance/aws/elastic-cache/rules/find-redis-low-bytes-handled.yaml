@@ -1,0 +1,53 @@
+policies:
+  - name: find-redis-low-bytes-handled
+    resource: cache-cluster
+    description: |
+      Notify when Valkey/Redis clusters show low memory usage or minimal data-tier I/O over 14 days.
+      Useful to find downsizing or data-tiering deactivation opportunities.
+
+    filters:
+      # Match either Redis or Valkey engines
+      - or:
+          - type: value
+            key: Engine
+            op: eq
+            value: redis
+          - type: value
+            key: Engine
+            op: eq
+            value: valkey
+
+      # Match if ANY low-usage metric is below threshold
+
+      # value: 1048576     # 1 MiB
+      # value: 10485760    # 10 MiB
+      # value: 104857600   # 100 MiB
+      # value: 1048576000  # 1000 MiB (~ 1 GiB)
+
+      - or:
+          # A) Overall low memory usage
+          - type: metrics
+            name: BytesUsedForCache
+            statistics: Average
+            days: 14
+            period: 86400
+            value: 104857600   # 100 MiB
+            op: less-than
+
+          # B) Low disk reads (data-tiering)
+          - type: metrics
+            name: BytesReadFromDisk
+            statistics: Average
+            days: 14
+            period: 86400
+            value: 104857600
+            op: less-than
+
+          # C) Low total data-tier I/O
+          - type: metrics
+            name: BytesWrittenToDisk
+            statistics: Average
+            days: 14
+            period: 86400
+            value: 1048576
+            op: less-than
