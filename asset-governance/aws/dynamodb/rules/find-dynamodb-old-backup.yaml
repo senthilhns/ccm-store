@@ -1,0 +1,10 @@
+policies:
+  - name: find-dynamodb-old-backup
+    resource: dynamodb-backup
+    description: Find DynamoDB backups older than 30 days
+    filters:
+      - type: value
+        key: BackupCreationDateTime
+        op: greater-than
+        value_type: age
+        value: 30

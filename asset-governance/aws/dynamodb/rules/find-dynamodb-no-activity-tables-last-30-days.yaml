@@ -1,0 +1,16 @@
+policies:
+  - name: find-dynamodb-no-activity-tables-last-30-days
+    resource: dynamodb-table
+    description: |
+      Find DynamoDB tables with no read/write activity in the last 30 days
+    filters:
+      - type: metrics
+        name: ConsumedReadCapacityUnits
+        days: 30
+        value: 0
+        op: equal
+      - type: metrics
+        name: ConsumedWriteCapacityUnits
+        days: 30
+        value: 0
+        op: equal

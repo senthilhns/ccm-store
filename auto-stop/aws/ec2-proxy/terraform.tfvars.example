@@ -1,0 +1,24 @@
+region = "ap-south-1"
+key_pair_name = "<your-ec2-keypair-name>"
+vpc_id = "<your-vpc-id>"
+subnet_id = "<your-subnet-id>"
+security_group_ids = ["<sg-xxxxxx>"]
+allocate_eip = true
+
+# Auto schedule EC2 and RDS instances tag to use
+# EC2 and RDS instances should have the tag key Schedule matching the below value
+# Search and find VMs or RDS with this tag
+schedule_name_tag = "Jul09AutoStopSchedule"
+
+# Name to set for the schedule indicating the schedule type
+schedule_name = "PeakHoursUptimeSchedule01"
+# In what time zone the schedule should be defined for start and end times
+time_zone = "EST"
+
+# Set to true for EC2 instances schedule addition
+add_ec2_schedule_rules = true
+# Set to true for RDS instances schedule addition
+add_rds_schedule_rules = false
+
+# Harness
+harness_cloud_connector_id = "<your-harness-connector-id>"

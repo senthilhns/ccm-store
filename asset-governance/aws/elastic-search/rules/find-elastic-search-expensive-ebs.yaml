@@ -1,0 +1,16 @@
+policies:
+  - name: find-elastic-search-expensive-ebs
+    resource: elasticsearch
+    description: Flag domains on expensive io1/io2/gp2 for migration to gp3
+    filters:
+      - or:
+          # Flag expensive provisioned IOPS volumes
+          - type: value
+            key: EBSOptions.VolumeType
+            op: in
+            value: [io1, io2]
+
+          # Flag old gp2 (should migrate to cheaper gp3)
+          - type: value
+            key: EBSOptions.VolumeType
+            value: gp2
