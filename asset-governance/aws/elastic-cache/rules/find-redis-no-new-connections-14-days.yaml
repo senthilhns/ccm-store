@@ -1,0 +1,13 @@
+policies:
+  - name: find-redis-no-new-connections-14-days
+    resource: cache-cluster
+    description: find Elastic cache Redis nodes with low NewConnections (daily sum over last 14 days)
+    filters:
+      - type: metrics
+        namespace: AWS/ElastiCache
+        name: NewConnections
+        statistics: Sum
+        period: 86400
+        days: 14
+        op: less-than
+        value: 1

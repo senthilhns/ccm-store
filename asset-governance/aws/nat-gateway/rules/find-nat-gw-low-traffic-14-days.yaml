@@ -1,0 +1,13 @@
+policies:
+  - name: find-nat-gw-low-traffic-14-days
+    resource: nat-gateway
+    description: find NAT GWs with negligible traffic for 14 days
+    filters:
+      - type: metrics
+        name: BytesInFromSource
+        namespace: AWS/NATGateway
+        statistic: Sum
+        period: 86400
+        days: 14
+        op: less-than
+        value: 104857600

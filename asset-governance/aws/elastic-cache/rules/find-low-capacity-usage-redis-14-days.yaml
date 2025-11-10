@@ -1,0 +1,13 @@
+policies:
+  - name: find-capacity-low-usage-redis-14-days
+    resource: cache-cluster
+    description: Elastic cache Redis nodes with high low (mem + storage) capacity utilization (daily avg over 14 days)
+    filters:
+      - type: metrics
+        namespace: AWS/ElastiCache
+        name: DatabaseCapacityUsagePercentage
+        statistics: Average
+        period: 86400
+        days: 14
+        op: less-than
+        value: 5

@@ -1,0 +1,13 @@
+policies:
+  - name: find-low-cpu-usage-redis-14-days
+    resource: cache-cluster
+    description: ElastiCache Redis nodes with low EngineCPUUtilization (daily avg over 14 days)
+    filters:
+      - type: metrics
+        namespace: AWS/ElastiCache
+        name: EngineCPUUtilization
+        statistics: Average
+        period: 86400
+        days: 14
+        op: less-than
+        value: 5

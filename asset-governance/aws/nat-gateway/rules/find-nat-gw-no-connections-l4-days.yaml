@@ -1,0 +1,14 @@
+policies:
+  - name: find-nat-gw-no-connections-l4-days
+    resource: nat-gateway
+    description: find NAT GWs with no active connections for 14 days
+    filters:
+      - and:
+          - type: metrics
+            name: ActiveConnectionCount
+            namespace: AWS/NATGateway
+            statistics: Maximum
+            period: 86400
+            days: 14
+            op: equal
+            value: 0
