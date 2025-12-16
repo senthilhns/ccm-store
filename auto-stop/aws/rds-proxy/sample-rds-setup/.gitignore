@@ -1,0 +1,2 @@
+# Ignore generated EC2 private key files
+*.pem

@@ -1,0 +1,9 @@
+region = "ap-south-1" # Replace with your desired region
+
+instance_type = "t3.nano" # Replace with your desired instance type
+ami_id = "ami-0900588ae829985de" # Replace with your desired AMI ID
+vpc_id = "vpc-0f123a456ecfb84eb" # Replace with your VPC ID
+instance_name = "Jul09Ec2Instance" # Replace with your desired instance name
+key_name = "Jul09Ec2InstanceKey" # Replace with your SSH key name
+
+schedule_tag = "Jul09AutoStopSchedule" # Replace with your desired schedule tag

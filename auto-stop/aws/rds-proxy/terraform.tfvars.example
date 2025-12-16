@@ -1,0 +1,26 @@
+region = "ap-south-1"
+
+# Networking for the proxy
+vpc_id             = "vpc-xxxxxx"
+subnet_id          = "subnet-xxxxxxx"
+
+# security_group_ids = ["sg-xxxxxxxx"]
+
+key_pair_name      = "Dec16Ec2InstanceKey"
+# route53_hosted_zone_id = "ZXXXXXXXXXXXX"
+
+# Harness
+cloud_connector_id = "aws5080conn005"
+harness_account_id = "xxxxxxxxxxxxxx"
+harness_api_key    = "xxxxxxxxxxxxxxxxxx"
+
+# Rule / Proxy
+schedule_name      = "RDSProxyAutoStopRule01"
+proxy_machine_type = "t3.medium"
+idle_time_mins     = 15
+
+# Target RDS
+rds_instance_id = "rdsdec16"
+
+proxy_source_port = 20000
+rds_target_port = 3306
