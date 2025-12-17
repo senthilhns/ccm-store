@@ -20,7 +20,6 @@ This folder contains Terraform to deploy a Harness AutoStopping Proxy and an Aut
 
 ```bash
 cp terraform.tfvars.example terraform.tfvars  # fill in values
-# If you prefer OpenTofu, replace terraform with tofu
 terraform init
 terraform validate
 terraform plan
